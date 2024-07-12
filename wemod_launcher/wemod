@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
 # Import utils that need constants
 from const_utils import (
-    scanfolderforversions,
+    scan_compat_for_versions,
     troubleshooter,
     ensure_wine,
     winetricks,
