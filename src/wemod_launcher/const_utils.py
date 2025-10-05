@@ -173,8 +173,7 @@ def scanfolderforversions(
                         priority == 2
                         and (
                             not closest_version_folder
-                            or folder_version_parts[1]
-                            > closest_version_number[1]
+                            or folder_version_parts[1] > closest_version_number[1]
                         )
                     ):
                         priority = 2
@@ -189,8 +188,7 @@ def scanfolderforversions(
                         priority == 3
                         and (
                             not closest_version_folder
-                            or folder_version_parts[1]
-                            < closest_version_number[1]
+                            or folder_version_parts[1] < closest_version_number[1]
                         )
                     ):
                         priority = 3
@@ -202,13 +200,10 @@ def scanfolderforversions(
                         priority == 4
                         and (
                             not closest_version_folder
-                            or folder_version_parts[0]
-                            > closest_version_number[0]
+                            or folder_version_parts[0] > closest_version_number[0]
                             or (
-                                folder_version_parts[0]
-                                == closest_version_number[0]
-                                and folder_version_parts[1]
-                                > closest_version_number[1]
+                                folder_version_parts[0] == closest_version_number[0]
+                                and folder_version_parts[1] > closest_version_number[1]
                             )
                         )
                     ):
@@ -221,13 +216,10 @@ def scanfolderforversions(
                         priority == 5
                         and (
                             not closest_version_folder
-                            or folder_version_parts[0]
-                            < closest_version_number[0]
+                            or folder_version_parts[0] < closest_version_number[0]
                             or (
-                                folder_version_parts[0]
-                                == closest_version_number[0]
-                                and folder_version_parts[1]
-                                < closest_version_number[1]
+                                folder_version_parts[0] == closest_version_number[0]
+                                and folder_version_parts[1] < closest_version_number[1]
                             )
                         )
                     ):
@@ -260,9 +252,7 @@ def scanfolderforversions(
         prefixesfolder = os.path.join(SCAN_FOLDER, "prefix")
         os.makedirs(prefixesfolder, exists_ok=True)
         protonconfminor = load_conf_setting("ProtonMinorSeven")
-        prefixesfile = os.path.join(
-            prefixesfolder, f"Proton7.{protonconfminor}.zip"
-        )
+        prefixesfile = os.path.join(prefixesfolder, f"Proton7.{protonconfminor}.zip")
         # ask the user to upload the prefix if they have one
         prresp = show_message(
             f"In your scan folder, the online missing prefix version with GE-Proton 7 (.{protonconfminor}) was found.\nPlease, be so kind and click yes to zip the prefix\nand that upload it to something like https://www.sendgb.com/; \nlastly, paste the link in a Wand-Launcher issue on GitHub",
@@ -317,9 +307,7 @@ def winetricks(command: str, proton_bin: str) -> int:
             winetricks_sh,
         )
         log(f"setting exec permissions on '{winetricks_sh}'")
-        process = subprocess.Popen(
-            f"sh -c 'chmod +x {winetricks_sh}'", shell=True
-        )
+        process = subprocess.Popen(f"sh -c 'chmod +x {winetricks_sh}'", shell=True)
         exit_code = process.wait()
 
         if exit_code != 0:
