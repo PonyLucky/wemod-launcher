@@ -83,7 +83,7 @@ def download_wand(temp_dir: str) -> str:
 
     def download_func():
         return download_progress(
-            get_wand_exe_url(),
+            "https://storage-cdn.wemod.com/app/releases/stable/Wand-12.6.0-full.nupkg",
             setup_file,
             lambda dl, total: update_log(status, dl, total),
         )
